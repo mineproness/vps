@@ -97,7 +97,7 @@ jobs:
           fi
       - name: Run Tunnel
         run: |
-           cloudflared tunnel --url http://localhost:8080 &
+           ./cloudflared tunnel --url http://localhost:8080 &
            sleep 30
       - name: Keep VM running
         run: |
