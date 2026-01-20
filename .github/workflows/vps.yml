@@ -27,8 +27,7 @@ jobs:
           sudo apt install -y qemu-system qemu-utils socat curl wget zip xz-utils cloud-utils
           git clone https://github.com/novnc/noVNC
           ./noVNC/utils/novnc_proxy --vnc localhost:5901 --listen localhost:8080 &
-          wget https://github.com/cloudflare/cloudflared/releases/download/2025.10.1/cloudflared-linux-amd64 -O cloudflared
-          chmod +x cloudflared
+          
       - name: Free disk space
         run: |
           sudo bash -c '
@@ -97,8 +96,10 @@ jobs:
           fi
       - name: Run Tunnel
         run: |
-           ./cloudflared tunnel --url http://localhost:8080 &
-           sleep 30
+          wget https://github.com/cloudflare/cloudflared/releases/download/2025.10.1/cloudflared-linux-amd64 -O cloudflared
+          chmod +x cloudflared
+          ./cloudflared tunnel --url http://localhost:8080 &
+          sleep 30
       - name: Keep VM running
         run: |
           sleep 18000
