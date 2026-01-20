@@ -26,7 +26,7 @@ jobs:
           cd 
           sudo apt install -y qemu-system qemu-utils socat curl wget zip xz-utils cloud-utils
           git clone https://github.com/novnc/noVNC
-          ./noVNC/utils/novnc_proxy --vnc localhost:5901 --listen localhost:8080 &
+          ./noVNC/utils/novnc_proxy --vnc localhost:5902 --listen localhost:8080 &
           
       - name: Free disk space
         run: |
